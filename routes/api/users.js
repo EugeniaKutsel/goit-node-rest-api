@@ -19,4 +19,8 @@ router.patch('/', authenticate, validation(schemas.subscriptionSchema), ctrlWrap
 
 router.patch('/avatars', authenticate, upload.single('avatar'), ctrlWrapper(ctrl.updateAvatar));
 
+router.get('/verify/:verificationToken', ctrlWrapper(ctrl.verify));
+
+router.post('/verify', validation(schemas.joiVerify), ctrlWrapper(ctrl.newVerify));
+
 module.exports = router;

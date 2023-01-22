@@ -14,6 +14,12 @@ const login = async (req, res) => {
     })
   }
 
+  if (!user.verify) {
+    res.status(401).json({
+      message: "Please verify your email"
+    })
+  }
+
   const passwordCompare = await bcrypt.compare(password, user.password);
   if (!passwordCompare) {
     res.status(401).json({
