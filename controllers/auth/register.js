@@ -2,7 +2,7 @@ const bcrypt = require("bcryptjs");
 const { User } = require('../../models/user');
 const gravatar = require('gravatar');
 const { v4: uuidv4 } = require('uuid');
-const { sendEmail } = require('../../middlewares');
+const { sendEmail } = require('../../helpers');
 const { BASE_URL } = process.env;
 
 const register = async (req, res) => {
